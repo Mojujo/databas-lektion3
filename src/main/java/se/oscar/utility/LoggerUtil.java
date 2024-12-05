@@ -3,10 +3,10 @@ package se.oscar.utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class loggerUtil {
-    private static final Logger logger = LoggerFactory.getLogger(loggerUtil.class);
+public class LoggerUtil {
+    private static final Logger logger = LoggerFactory.getLogger(LoggerUtil.class);
 
-    private loggerUtil() {
+    private LoggerUtil() {
         // Private constructor to prevent instantiation
     }
 

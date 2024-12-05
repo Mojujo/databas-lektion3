@@ -1,6 +1,6 @@
 package se.oscar;
 
-import se.oscar.utility.loggerUtil;
+import se.oscar.utility.LoggerUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,8 @@ import java.util.List;
 public class StudentDAOImpl implements StudentDAO {
     Student student;
 
-    private Student studentJoin(int id, Connection conn) {
+    @Override
+    public Student studentJoin(int id, Connection conn) {
         String sql = """
                 Select s.student_id, s.first_name, s.last_name, s.age, t.teacher_id, t.name
                 FROM LEKTION3.STUDENT s
@@ -38,7 +39,7 @@ public class StudentDAOImpl implements StudentDAO {
             }
 
         } catch (SQLException e) {
-            loggerUtil.logError("Error joining tables", e);
+            LoggerUtil.logError("Error joining tables", e);
         }
         return student;
     }
@@ -46,26 +47,5 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public void insertPerson(Student student, Connection conn) {
 
-    }
-
-    @Override
-    public void updatePerson(Student student, Connection conn) {
-
-    }
-
-    @Override
-    public void deletePerson(int id) {
-
-    }
-
-    @Override
-    public Student getPerson(int id) {
-
-        return student;
-    }
-
-    @Override
-    public List<Student> getStudents() {
-        return List.of();
     }
 }

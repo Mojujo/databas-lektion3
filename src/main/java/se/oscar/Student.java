@@ -1,5 +1,7 @@
 package se.oscar;
 
+import java.util.Objects;
+
 public class Student {
     private int studentId;
     private String firstName;
@@ -40,5 +42,29 @@ public class Student {
 
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return studentId == student.studentId && age == student.age && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(teacher, student.teacher);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, firstName, lastName, age, teacher);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", teacher=" + teacher +
+                '}';
     }
 }

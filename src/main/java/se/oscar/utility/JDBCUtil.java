@@ -15,7 +15,7 @@ public class JDBCUtil {
             }
             properties.load(input);
         } catch (IOException e) {
-            loggerUtil.logError("Unable to load application.properties", e);
+            LoggerUtil.logError("Unable to load application.properties", e);
         }
     }
 
@@ -36,13 +36,13 @@ public class JDBCUtil {
                 if (!conn.getAutoCommit()) {
                     conn.commit();
                 } else {
-                    loggerUtil.logWarning("Autocommit is enabled. No commit executed.");
+                    LoggerUtil.logWarning("Autocommit is enabled. No commit executed.");
                 }
             } else {
-                loggerUtil.logWarning("Connection is null or closed. Commit not possible.");
+                LoggerUtil.logWarning("Connection is null or closed. Commit not possible.");
             }
         } catch (SQLException e) {
-            loggerUtil.logError("Error committing transaction", e);
+            LoggerUtil.logError("Error committing transaction", e);
         }
     }
 
@@ -52,7 +52,7 @@ public class JDBCUtil {
                 conn.rollback();
             }
         } catch (SQLException e) {
-            loggerUtil.logError("Error rolling back", e);
+            LoggerUtil.logError("Error rolling back", e);
         }
     }
 }
